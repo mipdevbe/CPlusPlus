@@ -236,6 +236,29 @@ const string Combine(const string& firstName, const string& lastName)
 	return fullName;
 }
 
+// only a single line statement
+constexpr int GetNumber()
+{
+	return 42;
+}
+
+// only a single line statement
+constexpr int Add(int a, int b)
+{
+	return a + b;
+}
+
+// if then else only in c++ 14
+// below c++ 14 a > b ? a : b;
+constexpr int Max(int a, int b)
+{
+	if (a > b)
+		return a;
+	
+	return b;
+}
+
+
 int main()
 {
 /*
@@ -452,6 +475,23 @@ int main()
 
 	cout << "Distance in kilometers: " << dist1.GetKm() << " km" << endl;
 	cout << "Distance in kilometers: " << dist2.GetKm() << " km" << endl;
+	
+	constexpr int i = GetNumber(); 
+	int arr[i];
+
+/*	
+	const int j = GetNumber();
+	int arr1[j];
+*/
+
+	int x = GetNumber();
+
+	// compiled time value
+	constexpr int sumConst = Add(10, 20);
+
+	// runtime time value
+	int sumVar = Add(15, 25);
+
 	//free(p);
 	return 0;
 }
