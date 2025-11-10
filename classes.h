@@ -153,3 +153,73 @@ public:
 		return _size;
 	}
 };
+
+struct A
+{
+	A() {
+		cout << "A constructed" << endl;
+	}
+
+	~A() {
+		cout << "A destructed" << endl;
+	}
+
+	A(const A& other) {
+		cout << "A copy constructed" << endl;
+	}
+
+	A(A&& other) noexcept {
+		cout << "A move constructed" << endl;
+	}
+
+	A& operator=(const A& other) {
+		cout << "A copy assigned" << endl;
+		if (this == &other) 
+			return *this;
+		
+		return *this;
+	}
+
+	A& operator=(A&& other) noexcept {
+		cout << "A move assigned" << endl;
+		if (this == &other) 
+			return *this;
+
+		return *this;
+	}
+};
+
+struct B
+{
+	B() {
+		cout << "B constructed" << endl;
+	}
+
+	~B() {
+		cout << "B destructed" << endl;
+	}
+
+	B(const B& other) {
+		cout << "B copy constructed" << endl;
+	}
+
+	B(B&& other) noexcept {
+		cout << "B move constructed" << endl;
+	}
+
+	B& operator=(const B& other) {
+		cout << "B copy assigned" << endl;
+		if (this == &other)
+			return *this;
+
+		return *this;
+	}
+
+	B& operator=(B&& other) noexcept {
+		cout << "B move assigned" << endl;
+		if (this == &other)
+			return *this;
+
+		return *this;
+	}
+};

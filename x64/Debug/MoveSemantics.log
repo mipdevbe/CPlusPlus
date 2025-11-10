@@ -1,5 +1,5 @@
 ﻿  MoveSemantics.cpp
-C:\Michel\Coursera\Issues\Move Semantics – Implementation (C++11)\MoveSemantics\MoveSemantics\MoveSemantics.cpp(482,6): warning C4101: 'arr3': unreferenced local variable
+C:\Michel\Coursera\Issues\Move Semantics – Implementation (C++11)\MoveSemantics\MoveSemantics\MoveSemantics.cpp(508,6): warning C4101: 'arr3': unreferenced local variable
   classes.cpp
   Generating Code...
   MoveSemantics.vcxproj -> C:\Michel\Coursera\Issues\Move Semantics – Implementation (C++11)\MoveSemantics\x64\Debug\MoveSemantics.exe

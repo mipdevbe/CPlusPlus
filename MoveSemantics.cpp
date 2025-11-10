@@ -260,6 +260,32 @@ constexpr int Max(int a, int b)
 	return b;
 }
 
+union Test {
+	int x;     //
+	char ch;   // x and ch will reside in the same memory location
+
+	Test() : ch{ 'a'} {
+		cout << __FUNCSIG__ << endl;
+	}
+
+	~Test() {
+		cout << __FUNCSIG__ << endl;
+	}
+};
+
+union UDT {
+	A a;
+	B b;
+	string s;
+
+	UDT() {
+		cout << __FUNCSIG__ << endl;
+	}
+
+	~UDT() {
+		cout << __FUNCSIG__ << endl;
+	}
+};
 
 int main()
 {
@@ -548,6 +574,19 @@ int main()
 	for (const auto& item : vec) {
 		cout << "Vector item after insert: " << item << endl;
 	}
+
+	Test t;
+
+	cout << t.ch << endl;
+	t.x = 1000;
+	cout << t.ch << endl;
+
+	using namespace std::string_literals;
+	UDT udt;
+	new(&udt.s) string("Hello Union");
+
+	new (&udt.a) A();
+	udt.a.~A();
 
 	//free(p);
 	return 0;
