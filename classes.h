@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -107,3 +108,54 @@ public:
 
 Distance operator "" _meters(long double km);
 Distance operator "" _mi(long double km);
+
+void Print(initializer_list<int> values)
+{
+	for (auto value : values) {
+		cout << value << " ";
+	}
+	cout << endl;
+}
+
+class Bag {
+	int arr[10];
+	int _size{};
+
+public:
+	Bag(initializer_list<int> values){
+		assert(values.size() < 10);
+		for (auto value : values) {
+			Add(value);
+		}
+	}
+
+	void Add(int value) 
+	{
+		assert(_size < 10);
+
+		if (_size < 10) {
+			arr[_size++] = value;
+		}
+	}
+
+	void Remove() 
+	{
+		assert(_size > 0);
+
+		if (_size > 0) {
+			--_size;
+		}
+	}
+
+	int operator [](int index) const
+	{
+		if (index >= 0 && index < _size) {
+			return arr[index];
+		}
+		throw out_of_range("Index out of range");
+	}
+
+	int GetSize() const {
+		return _size;
+	}
+};

@@ -2,6 +2,7 @@
 #include <cstring>
 #include <string>
 #include <sstream>
+#include <initializer_list>
 #include "Integer.h"
 #include "classes.h"
 
@@ -477,20 +478,37 @@ int main()
 	cout << "Distance in kilometers: " << dist2.GetKm() << " km" << endl;
 	
 	constexpr int i = GetNumber(); 
-	int arr[i];
+	int arr3[i];
 
 /*	
 	const int j = GetNumber();
 	int arr1[j];
 */
 
-	int x = GetNumber();
+	int x1 = GetNumber();
 
 	// compiled time value
 	constexpr int sumConst = Add(10, 20);
 
 	// runtime time value
 	int sumVar = Add(15, 25);
+
+	int x2{ 0 };
+	int arr4[5]{ 1,2,3,4,5 };
+
+	initializer_list<int> list = { 1,2,3,4,5 };
+
+	Bag bag{3, 5, 7};
+/*
+	bag.Add(3);
+	bag.Add(5);
+	bag.Add(7);
+*/
+	for (int i = 0; i < bag.GetSize(); ++i) {
+		cout << "Bag item " << i << ": " << bag[i] << endl;
+	}
+
+	Print({3, 5, 7});
 
 	//free(p);
 	return 0;
