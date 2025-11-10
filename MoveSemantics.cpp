@@ -352,8 +352,8 @@ int main()
 	string firstName;
 	string lastName;
 
-	std::getline(cin, firstName);
-	std::getline(cin, lastName);
+//	std::getline(cin, firstName);
+	//std::getline(cin, lastName);
 
 	string fullName = firstName + " " + lastName;
 	cout << "Full Name: " << fullName << endl;
@@ -374,7 +374,7 @@ int main()
 	s[0] = 'h';
 	char ch = s[1];
 
-	getline(cin, s);
+//	getline(cin, s);
 
 	// Size
 	size_t l = s.length(); // faster
@@ -420,11 +420,38 @@ int main()
 	string st = ss.str();
 	cout << st << endl;
 
+	ss.str(""); // clear the stringstream	
+	ss << sum;
+	auto ssum = ss.str();
+	cout << "Sum as string: " << ssum << endl;
+
+	auto sumStr = to_string(sum); // for all primitive type.
+	cout << "Sum as string: " << sumStr << endl;
+
+	string data = "12 89 21";
+	int aValue;
+	stringstream ssdata;
+	ssdata.str(data);
+	while (!ssdata.eof()) {
+		ssdata >> aValue;
+		cout << "Extracted integer: " << aValue << endl;
+	}
+
+	ssdata.str(data);
+	while (ssdata >> aValue) {
+		cout << "Extracted integer: " << aValue << endl;
+	}
+
+	int xValue = stoi("1234");
+
 	istringstream is;
 	ostringstream os;
 
+	Distance dist1{ 32.0_mi };
+	Distance dist2{ 32.0_meters };
 
-
+	cout << "Distance in kilometers: " << dist1.GetKm() << " km" << endl;
+	cout << "Distance in kilometers: " << dist2.GetKm() << " km" << endl;
 	//free(p);
 	return 0;
 }

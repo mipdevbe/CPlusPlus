@@ -83,3 +83,27 @@ public:
 		cout << "Point constructed." << endl;
 	}
 };
+
+class Distance {
+	long double _kilometers;
+
+public:
+	Distance(long double km) :_kilometers(km) {
+		cout << "Distance constructed with " << km << " kilometers." << endl;
+	}
+	~Distance() {
+		cout << "Distance destructed." << endl;
+	}
+
+	long double GetKm() const {
+		return _kilometers;
+	}
+
+	void SetKm(long double km) {
+		_kilometers = km;
+	}
+
+};
+
+Distance operator "" _meters(long double km);
+Distance operator "" _mi(long double km);
