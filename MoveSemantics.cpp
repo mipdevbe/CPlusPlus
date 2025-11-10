@@ -2,6 +2,7 @@
 #include <cstring>
 #include <string>
 #include <sstream>
+#include <vector>
 #include <initializer_list>
 #include "Integer.h"
 #include "classes.h"
@@ -509,6 +510,44 @@ int main()
 	}
 
 	Print({3, 5, 7});
+
+	vector<int> vec = { 1,2,3,4,5 };
+	vec.push_back(10);
+
+	// Access vector items
+	vec[0] = 100;
+
+	for (size_t i = 0; i < vec.size(); ++i) {
+		cout << "Vector item at index " << i << ": " << vec[i] << endl;
+	}
+
+	for (const auto& item : vec) {
+		cout << "Vector item: " << item << endl;
+	}
+
+	auto it = vec.begin();
+	while (it != vec.end()) {
+		cout << "Vector item using iterator: " << *it << endl;
+		++it;
+	}
+
+	// Delete vector items
+	it = vec.begin();
+	vec.erase(it);
+
+	cout << endl;
+	for (const auto& item : vec) {
+		cout << "Vector item after erase: " << item << endl;
+	}
+
+	// Insert vector items
+	it = vec.begin();
+	vec.insert(it, 50);
+
+	cout << endl;
+	for (const auto& item : vec) {
+		cout << "Vector item after insert: " << item << endl;
+	}
 
 	//free(p);
 	return 0;

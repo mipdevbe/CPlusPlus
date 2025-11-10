@@ -109,13 +109,7 @@ public:
 Distance operator "" _meters(long double km);
 Distance operator "" _mi(long double km);
 
-void Print(initializer_list<int> values)
-{
-	for (auto value : values) {
-		cout << value << " ";
-	}
-	cout << endl;
-}
+void Print(initializer_list<int> values);
 
 class Bag {
 	int arr[10];
